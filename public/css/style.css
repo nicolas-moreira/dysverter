@@ -1,0 +1,55 @@
+:root {
+    --marginBottom: 0px;
+    --fontSize: 20px;
+    --height: auto;
+    --espacementLettres: 0px;
+    --espacementMots: 0px;
+  }
+
+@font-face {
+    font-family: myFirstFont;
+    src: url(/fonts/OpenDyslexic.otf)
+  }
+
+.textbox {
+   position: relative;
+   justify-items: center;
+   font-family: myFirstFont;
+}
+
+.test{
+    font-family: myFirstFont;
+}
+
+p {
+    overflow-wrap: break-word;
+}
+
+.each-line {
+    margin: 0px;
+    margin-bottom: var(--marginBottom);
+    padding: 5px;
+    width: 100%;
+    height: var(--height);
+    font-size: var(--fontSize);
+    line-height: 20px;
+    justify-content:safe;
+    font-family:myFirstFont;
+    letter-spacing: var(--espacementLettres);
+    word-spacing: var(--espacementMots);
+    overflow-wrap: break-word;
+}
+.green {
+    background-color: rgba(255,251,150, 0.45);
+}
+.red {
+    background-color: rgba(1,205,254, 0.45);
+}
+
+.Hidden {
+    visibility:hidden;
+}
+
+.player {
+    
+}

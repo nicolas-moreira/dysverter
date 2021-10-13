@@ -3,7 +3,7 @@
 <br />
 <p align="center">
   <a href="https://dysverter.herokuapp.com/apropos">
-    <img src="https://i.postimg.cc/FzzFYdDP/Novo-Projeto-19.png" alt="Logo" width="1024" height="500">
+    <img src="https://i.postimg.cc/sfMvfqq3/Novo-Projeto-20.png" alt="Logo" width="750" height="250">
   </a>
 
   <h3 align="center">DYSVERTER</h3>

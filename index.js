@@ -15,20 +15,6 @@ app.set('view engine', 'pug');
 app.set('views','views');
 
 
-
-const options = {
-  endpoint: 'https://languagetool.org/api/v2'
-};
-
-const languageToolClient = new LanguageToolApi(options);
-
-async function getLanguages(){
-     languageToolClient.languages().then((res) => {
-         console.log(res,"test");
-     });
-}
-
-
 app.get("/", (req,res,next) => {
     res.status(200).render("dysverter");
 });
@@ -63,10 +49,22 @@ app.post("/dev", (req,res,next) => {
 
 
 
+const options = {
+    endpoint: 'https://languagetool.org/api/v2'
+  };
+  
+  const languageToolClient = new LanguageToolApi(options);
+  
+  async function getLanguages(){
+       languageToolClient.languages().then((res) => {
+           console.log(res);
+       });
+  }
+
 app.post("/syntheseVocal", (req,res,next) => {
     var uid = uuidv4();
     
-    say.export(`${req.body.text}`, 'Audrey', `${req.body.vitesse}` , `public/audios/${uid}.wav`, (err) => {
+    say.export(`${req.body.text}`, 'Audrey', `${req.body.speed}` , `public/audios/${uid}.wav`, (err) => {
             var data = {audio: `audios/${uid}.wav`};
             res.json(data);
       })

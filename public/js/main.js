@@ -39,7 +39,7 @@ espacementMots.addEventListener('mouseup', (event) => {
 
 lire.addEventListener('click', (event) => {
         
-        let data = {text: `${textModule.value}`, vitesse:`${vitesse.value}`};
+        let data = {text: `${textModule.value}`, speed:`${vitesse.value}`};
 
         async function fetchData() {
             

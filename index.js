@@ -1,26 +1,25 @@
 const express = require('express');
+const app = express();
+const port = process.env.PORT || 5000;
 const path = require('path');
 const say = require('say');
 const bodyParser = require("body-parser");
-const app = express();
-const port = process.env.PORT || 5000;
 const { v4: uuidv4 } = require('uuid');
-
 const LanguageToolApi = require('language-grammar-api');
 
 
 app.use(bodyParser.json());
+app.use(express.static(path.join(__dirname, "public")));
 
 app.set('view engine', 'pug');
 app.set('views','views');
 
-app.use(express.static(path.join(__dirname, "public")));
 
 
 const options = {
   endpoint: 'https://languagetool.org/api/v2'
 };
- 
+
 const languageToolClient = new LanguageToolApi(options);
 
 async function getLanguages(){
@@ -29,17 +28,6 @@ async function getLanguages(){
      });
 }
 
-let spellCheck = new Object();
-const varlog = (varToPrint) => console.log(varToPrint);
-
-spellCheck.analyse = async function getErrors(text) {
-        var test = await languageToolClient.check({
-            text: `${text}`, // required
-            language: 'fr' // required (you can use .languages call to get language)
-        });
-        test.text = `${text}`;
-        return test;
-}
 
 app.get("/", (req,res,next) => {
     res.status(200).render("dysverter");
@@ -54,11 +42,21 @@ app.get("/contacts", (req,res,next) => {
 })
 
 
-app.post("/dev", (req,res,next) => {
-    var textToCheck = req.body.texto;
 
-    spellCheck.analyse(textToCheck).then((resp) => {
-        const errors = resp.matches;
+let spellCheck = new Object();
+
+spellCheck.analyse = async function (text) {
+        var response = await languageToolClient.check({
+            text: `${text}`, // required
+            language: 'fr' // required (you can use .languages call to get language)
+        });
+        response.text = `${text}`;
+        return response;
+}
+
+app.post("/dev", (req,res,next) => {
+    
+    spellCheck.analyse(req.body.clientText).then((resp) => {
         res.json(resp);
     });
 });

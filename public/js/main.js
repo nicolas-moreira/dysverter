@@ -64,7 +64,7 @@ lire.addEventListener('click', (event) => {
 
 // fetch corrector
 async function fetchWords(text) {
-    let data = {texto: `${text}`};
+    let data = {clientText: `${text}`};
     let response = await fetch('/dev', {
         method: 'POST',
         headers: {'Content-Type': 'application/json',},

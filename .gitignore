@@ -5,3 +5,4 @@ screens
 SOURCES
 dys
 front
+public/audios/*

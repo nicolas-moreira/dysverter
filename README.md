@@ -2,8 +2,8 @@
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
-  <a href="https://www.dckap.com/blog/wp-content/uploads/2020/05/zoom-conference-blog-featured-image-1.png">
-    <img src="https://www.dckap.com/blog/wp-content/uploads/2020/05/zoom-conference-blog-featured-image-1.png" alt="Logo" width="1024" height="500">
+  <a href="https://dysverter.herokuapp.com/apropos">
+    <img src="https://i.postimg.cc/FzzFYdDP/Novo-Projeto-19.png" alt="Logo" width="1024" height="500">
   </a>
 
   <h3 align="center">DYSVERTER</h3>

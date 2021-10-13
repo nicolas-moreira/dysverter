@@ -16,7 +16,6 @@ textModule.addEventListener('change', (event) => {
 
 espacement.addEventListener('mouseup', (event) => {
     const value = event.target.value;
-    console.log(value);
     document.documentElement.style.setProperty('--marginBottom', `${value}px`);
 })
 
@@ -39,7 +38,7 @@ espacementMots.addEventListener('mouseup', (event) => {
 // Synthese Vocal
 
 lire.addEventListener('click', (event) => {
-        console.log(vitesse.value);
+        
         let data = {text: `${textModule.value}`, vitesse:`${vitesse.value}`};
 
         async function fetchData() {
@@ -79,20 +78,20 @@ async function fetchWords(text) {
 
 textModule.addEventListener('keyup', (event) => {
 
-    //Auto corrector
-    // fetchWords(event.target.value)
-    // .then( (res) => {
-    //     const errors = res.matches;
-    //             for(var i = 0; i < errors.length; i++){
-    //                 console.log({
-    //                     "word": res.text.substring(errors[i].offset, errors[i].offset+errors[i].length),
-    //                     "offset": errors[i].offset,
-    //                     "length": errors[i].length,
-    //                     "suggestions": errors[i].replacements
-    //                 });
+    // Auto corrector
+    fetchWords(event.target.value)
+    .then( (res) => {
+        const errors = res.matches;
+                for(var i = 0; i < errors.length; i++){
+                    console.log({
+                        "word": res.text.substring(errors[i].offset, errors[i].offset+errors[i].length),
+                        "offset": errors[i].offset,
+                        "length": errors[i].length,
+                        "suggestions": errors[i].replacements
+                    });
                     
-    //             }
-    // });
+                }
+    });
 
 //////////////////////////////////////////////////////////////////////////////////////////
     // Underline color
